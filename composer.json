@@ -1,0 +1,33 @@
+{
+    "name": "graychen/moive-url",
+    "description": "find moive play url by moive name",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "陈家辉",
+            "email": "chenjiahui@haolianluo.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "graychen\\moive-url\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+             "graychen\\tests\\": "tests"
+        }
+      },
+      "repositories": [
+        {
+          "type": "composer",
+          "url": "https://asset-packagist.org"
+        }
+      ]
+}
