@@ -1,6 +1,6 @@
 <?php
 
-namespace graychen\moive;
+namespace graychen\moiveUrl;
 
 trait singletontrait
 {

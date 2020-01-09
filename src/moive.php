@@ -1,16 +1,19 @@
 <?php
-namespace graychen\moive;
-use graychen\moive\singletontrait;
+
+namespace graychen\moiveUrl;
+
+use graychen\moiveUrl\singletontrait;
+
 class moive
 {
+  use singletontrait;
+
   const HOST ="http://www.kuyunzy1.com/";
+
   private $name;
 
-  use singletontrait;
-    
-  public function __construct($name)
+  public function __construct()
   {
-      $this->setName($name);
   }
 
   public function setName($name)
@@ -26,7 +29,6 @@ class moive
   public function getUrl($name)
   {
     $name = $this->getName();
-    getContent(self::HOST."search.asp");
+    self::HOST."search.asp";
   }
-
 }
