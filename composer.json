@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "graychen\\moive-url\\": "src"
+            "graychen\\moiveUrl\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-             "graychen\\tests\\": "tests"
+             "graychen\\moiveUrl\\tests\\": "tests"
         }
       },
       "repositories": [
