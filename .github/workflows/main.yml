@@ -1,18 +1,12 @@
-name: PHP Composer
+name: PHP Unit
 
 on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
-
-    - name: Validate composer.json and composer.lock
-      run: composer validate
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
     - name: PHPUnit
-      run: vendor/bin/phpunit --coverage-text
+      uses: graychen/phpunit-action@v1.0.0
