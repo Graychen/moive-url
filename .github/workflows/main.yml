@@ -1,4 +1,4 @@
-name: CI
+name: PHP Composer
 
 on: [push]
 
@@ -9,9 +9,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+    - name: PHPUnit (php-actions)
+      uses: php-actions/phpunit@v1.0.0
+      with:
+        config: ./phpunit.xml.dist
