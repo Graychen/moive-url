@@ -9,4 +9,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: PHPUnit
-      uses: graychen/phpunit@master
+      uses: graychen/phpunit-action@v1.0
