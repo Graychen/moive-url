@@ -11,7 +11,6 @@ trait singletontrait
         if (! isset($instance)) {
             $instance = new static();
         }
-
         return $instance;
     }
 }
