@@ -3,6 +3,7 @@
 namespace graychen\moiveUrl;
 
 use graychen\moiveUrl\singletontrait;
+use GuzzleHttp\Client;
 
 class moive
 {
@@ -29,6 +30,10 @@ class moive
   public function getUrl($name)
   {
     $name = $this->getName();
-    self::HOST."search.asp";
+    $client = new Client();
+    $response = $client->post(self::HOST."search.asp");
+    $body=$response->getBody();
+    $content = $body->getContents();
+    return $content;
   }
 }

@@ -14,4 +14,10 @@ class moiveTest extends TestCase{
         $this->assertEquals($moive->getName(),"test");
     }
 
+    public function testGetMoiveUrl(){
+        $name = "大话西游";
+        $moive=moive::getInstance();
+        $response = $moive->getUrl($name);
+        var_dump($response);
+    }
 }
