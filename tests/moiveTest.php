@@ -15,9 +15,19 @@ class moiveTest extends TestCase{
     }
 
     public function testGetMoiveUrl(){
-        $name = "大话西游";
+        $name = "大话西游之月光宝盒";
         $moive=moive::getInstance();
-        $response = $moive->getUrl($name);
-        print_r($response);
+        $moive->setName($name);
+        $response = $moive->getSearchHtml();
     }
+
+    public function testGetDetail(){
+        $name = "大话西游之月光宝盒";
+        $moive=moive::getInstance();
+        $moive->setName($name);
+        $detailUrl = $moive->getDetail();
+        $this->assertEquals($detailUrl, "vod-detail-id-6805");
+    }
+
+
 }

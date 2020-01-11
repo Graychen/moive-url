@@ -30,7 +30,7 @@ class moive
    /**
    * 获取电影搜索的html
    */
-  public function getSearchHtml($name)
+  public function getSearchHtml()
   {
     $name = $this->getName();
     $client = new Client();
@@ -43,5 +43,22 @@ class moive
     $body=$response->getBody();
     $content = $body->getContents();
     return $content;
+  }
+
+  /**
+   *获取电影名称详情页url
+   */
+  public function getDetail()
+  {
+    $html = $this->getSearchHtml();
+    preg_match("/vod-detail-id-[0-9]{3,6}/",$html,$detailUrl);
+    return $detailUrl[0];
+  }
+
+  public function getUrl()
+  {
+     $detail =  $this->getDetail();
+    preg_match("/vod-detail-id-[0-9]{3,6}/",$html,$moiveUrl);
+    return $moiveUrl;
   }
 }
