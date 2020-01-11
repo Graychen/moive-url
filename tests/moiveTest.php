@@ -18,6 +18,6 @@ class moiveTest extends TestCase{
         $name = "大话西游";
         $moive=moive::getInstance();
         $response = $moive->getUrl($name);
-        var_dump($response);
+        print_r($response);
     }
 }
