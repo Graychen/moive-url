@@ -65,7 +65,7 @@ class moive
     $response = $client->request('GET', self::HOST."?m=".$detailUrl);
     $body=$response->getBody();
     $content = $body->getContents();
-    preg_match("/[a-zA-z]+:\/\/[^\s]*/",$content,$moiveUrlArray);
-    return $moiveUrlArray;
+    preg_match("/http:\/\/[^\s]*\/share\/[a-zA-Z0-9]{15,20}/",$content,$moiveUrlArray);
+    return $moiveUrlArray[0];
   }
 }
