@@ -16,3 +16,4 @@ $moive=moive::getInstance();
 $moive->setName($name);
 $url = $moive->getUrlArray();
 ```
+这个$url就是我们所需要的播放资源地址了
