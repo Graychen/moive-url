@@ -55,10 +55,17 @@ class moive
     return $detailUrl[0];
   }
 
-  public function getUrl()
+  /**
+   *获取电影url
+   */
+  public function getUrlArray()
   {
-     $detail =  $this->getDetail();
-    preg_match("/vod-detail-id-[0-9]{3,6}/",$html,$moiveUrl);
-    return $moiveUrl;
+    $detailUrl =  $this->getDetail();
+    $client = new Client();
+    $response = $client->request('GET', self::HOST."?m=".$detailUrl);
+    $body=$response->getBody();
+    $content = $body->getContents();
+    preg_match("/http:\/\/[^\s]*\/share\/[a-zA-Z0-9]{15,20}/",$content,$moiveUrlArray);
+    return $moiveUrlArray[0];
   }
 }

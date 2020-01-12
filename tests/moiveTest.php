@@ -19,6 +19,7 @@ class moiveTest extends TestCase{
         $moive=moive::getInstance();
         $moive->setName($name);
         $response = $moive->getSearchHtml();
+        $this->assertTrue($response!=strip_tags($response));
     }
 
     public function testGetDetail(){
@@ -29,5 +30,12 @@ class moiveTest extends TestCase{
         $this->assertEquals($detailUrl, "vod-detail-id-6805");
     }
 
-
+    public function testGetUrlArray()
+    {
+        $name = "喜剧之王";
+        $moive=moive::getInstance();
+        $moive->setName($name);
+        $detailUrl = $moive->getUrlArray();
+        $this->assertEquals(1,preg_match("/http:\/\/[^\s]*\/share\/[a-zA-Z0-9]{15,20}/",$detailUrl));
+    }
 }
