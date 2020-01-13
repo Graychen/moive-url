@@ -10,7 +10,7 @@ composer require graychen/moive-url
 use graychen\moiveUrl\moive;
 ```
 ## 怎么使用
-### 获取播放页面的地址
+### 获取带播放器的播放页面的地址
 ``` php
 $name="喜剧之王"
 $moive=moive::getInstance();
@@ -18,7 +18,7 @@ $moive->setName($name);
 $url = $moive->getShareUrl();
 ```
 这个$url就是我们可以观看的地址了
-### 获取播放页面的地址
+### 获取播放的地址
 ``` php
 $name="喜剧之王"
 $moive=moive::getInstance();
