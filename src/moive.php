@@ -58,7 +58,7 @@ class moive
   /**
    *获取电影url
    */
-  public function getUrlArray()
+  public function getShareUrl()
   {
     $detailUrl =  $this->getDetail();
     $client = new Client();
@@ -66,6 +66,20 @@ class moive
     $body=$response->getBody();
     $content = $body->getContents();
     preg_match("/http:\/\/[^\s]*\/share\/[a-zA-Z0-9]{15,20}/",$content,$moiveUrlArray);
+    return $moiveUrlArray[0];
+  }
+
+  /**
+   * 获取播放地址url
+   */
+  public function getPlayUrl()
+  {
+    $detailUrl =  $this->getDetail();
+    $client = new Client();
+    $response = $client->request('GET', self::HOST."?m=".$detailUrl);
+    $body=$response->getBody();
+    $content = $body->getContents();
+    preg_match("/[a-zA-z]+:\/\/[^\s]*index.m3u8/",$content,$moiveUrlArray);
     return $moiveUrlArray[0];
   }
 }

@@ -30,12 +30,21 @@ class moiveTest extends TestCase{
         $this->assertEquals($detailUrl, "vod-detail-id-6805");
     }
 
-    public function testGetUrlArray()
+    public function testGetShareUrl()
     {
         $name = "喜剧之王";
         $moive=moive::getInstance();
         $moive->setName($name);
-        $detailUrl = $moive->getUrlArray();
+        $detailUrl = $moive->getShareUrl();
         $this->assertEquals(1,preg_match("/http:\/\/[^\s]*\/share\/[a-zA-Z0-9]{15,20}/",$detailUrl));
+    }
+
+    public function testGetPlayUrl()
+    {
+        $name = "喜剧之王";
+        $moive=moive::getInstance();
+        $moive->setName($name);
+        $detailUrl = $moive->getPlayUrl();
+        $this->assertEquals(1,preg_match("/[a-zA-z]+:\/\/[^\s]*index.m3u8/",$detailUrl));
     }
 }
