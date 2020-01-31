@@ -1,3 +1,4 @@
+![PHP Unit](https://github.com/Graychen/moive-url/workflows/PHP%20Unit/badge.svg?branch=master&event=push)
 # moive-url
 ## 作用
 一个根据电影名称获取对应的播发资源的composer包
