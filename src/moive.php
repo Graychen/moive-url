@@ -7,6 +7,7 @@ use GuzzleHttp\Client;
 
 class moive
 {
+
   use singletontrait;
 
   const HOST ="http://www.zuidazy2.net/index.php";
